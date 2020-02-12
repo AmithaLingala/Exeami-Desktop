@@ -31,7 +31,8 @@ const commands = [
 ]
 
 async function executeCode() {
-    for (item of commands) {
+    for ( let i = 0; i < commands.length; i++) {
+        const item = commands[i];
         const code = document.createElement('span', { class: 'code' });
         code.innerHTML = '$ ' + item.command + "<br>";
         termBox.append(code);
@@ -43,6 +44,12 @@ async function executeCode() {
             termBox.append(res);
             await sleep(1000);
         }
+        const pathClone = document.getElementById('userpath').cloneNode(true);
+        pathClone.innerHTML =  "<br>" + pathClone.innerHTML;
+        if(i  < commands.length-1){
+            termBox.append(pathClone);
+        }
+        
         await sleep(2000);
     }
 }
