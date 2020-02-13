@@ -11,7 +11,10 @@
 <body>
     <div class="background">
         <div class="terminal">
-            <div class="title-bar"><span class="title">Jillu: ~/code/website/</span><span class="actions">X</span></div><br>
+            <div class="tooltip">Hover over me
+                <span class="tooltiptext">Tooltip text</span>
+              </div> 
+            <div class="title-bar"><span class="title">Jillu: ~/code/website/</span><div class="actions tooltip "><span class="tooltiptext"></span></div></div><br>
             <div class="console" id="console">
                 <div id="userpath">
                 <span class="user">ami@exeami</span>:<span class="path">~/code/website/</span> <span
@@ -23,7 +26,8 @@
     <noscript>
         You need javascript for this web page to run code!
     </noscript>
-    <script src="/script/main.js">
+
+    <script type="application/javascript" src="/script/main.js">
     </script>
 </body>
 </html>
