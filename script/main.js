@@ -37,24 +37,20 @@ async function executeCode() {
         const code = document.createElement('span');
         code.setAttribute('class', 'code')
         code.innerHTML = '$ ' + item.command;
-        termBox.append(code);
-        termBox.append(cursor);
-        termBox.append(document.createElement('br'));
+        termBox.append(code, cursor, document.createElement('br'));
         await sleep(1000);
 
         for (result of item.results) {
             const res = document.createElement('span');
             res.setAttribute('class', 'code')
             res.innerHTML = result + "<br>";
-            termBox.append(res);
-            termBox.append(cursor);
+            termBox.append(res, cursor);
             await sleep(1000);
         }
         const pathClone = document.getElementById('userpath').cloneNode(true);
         pathClone.innerHTML =  "<br>" + pathClone.innerHTML;
         if(i  < commands.length-1){
-            termBox.append(pathClone);
-            termBox.append(cursor);
+            termBox.append(pathClone, cursor);
         }
         
         await sleep(2000);
