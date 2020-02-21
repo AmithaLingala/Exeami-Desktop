@@ -1,25 +1,34 @@
 const index = document.getElementById('index');
-const notes = document.getElementById('notes');
+let notes = document.getElementById('notes');
 let posts = [];
 
 fetch('/data/posts.json')
-.then(response => response.json())
-.then(json=>{
-    posts=json.posts.reverse();
-    // A workaround as iframe decided to stick with previos link on refresh
-    populateIndex();
-    notes.src = '/blog/page/'+posts[0].id;
-});
+    .then(response => response.json())
+    .then(json => {
+        // get the last post first
+        posts = json.posts.reverse();
+        // A workaround as iframe decided to stick with previos link on refresh
+        populateIndex();
+        const clone = notes.cloneNode(true);
+        clone.setAttribute('src', '/blog/page/' + posts[0].id);
+        notes.parentNode.replaceChild(clone, notes)
+        notes = clone;
+    });
 
 async function populateIndex() {
     for (let post of posts) {
         const item = document.createElement('li');
         item.innerHTML = post.name;
-        item.onclick = ()=> {
+        item.onclick = () => {
             console.log(notes.src)
-            if(notes.src.indexOf('/blog/page/'+post.id) === -1){
-                notes.src = '/blog/page/'+post.id
-            }
+            // notes.src = '/blog/page/'+post.id
+            /** The following is a workaround since neither chrome nor edge supports latest embed standard
+             * We were unable to change embed src dynamically, so here we clone the embed element and replace its src before replacing the embed itself.
+             */
+            const clone = notes.cloneNode(true);
+            clone.setAttribute('src', '/blog/page/' + post.id);
+            notes.parentNode.replaceChild(clone, notes)
+            notes = clone;
         };
         index.append(item);
     }

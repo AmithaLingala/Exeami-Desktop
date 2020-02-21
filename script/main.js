@@ -1,8 +1,9 @@
 const title = document.getElementById('title');
-const windowPane = document.getElementById('window-pane');
 const desktop = document.getElementById('desktop');
 
+let windowPane = document.getElementById('window-pane');
 let folders = [];
+
 fetch("/data/folders.json")
     .then(response => response.json())
     .then(json => {
@@ -29,11 +30,17 @@ function generateFolderLinks() {
 
         folderDiv.onclick = () => {
             if (folder.isWindow) {
-                windowPane.src = '/' + folder.name;
+                // windowPane.src = '/' + folder.name;
+                /** The following is a workaround since neither chrome nor edge supports latest embed standard
+                 * We were unable to change embed src dynamically, so here we clone the embed element and replace its src before replacing the embed itself.
+                 */
+                const clone = windowPane.cloneNode(true);
+                clone.setAttribute('src', folder.name);
+                windowPane.parentNode.replaceChild(clone, windowPane)
+                windowPane = clone;
                 title.innerHTML = 'exeami: ' + folder.path;
             } else {
-                windowPane.src = '/' + folder.name;
-                title.innerHTML = 'exeami: ' + folder.path;
+                // Not implimented yet
             }
         }
         desktop.appendChild(folderDiv);

@@ -17,8 +17,8 @@
         },
         {
             "name": "blog",
-            "path": "blog",
-            "isWindow":false
+            "path": "~/Desktop/blog",
+            "isWindow":true
         }
     ]
 }
