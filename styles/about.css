@@ -1,0 +1,19 @@
+
+body, html {
+    margin: 0 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+.bgimg {
+  background-color: tomato;
+}
+.name{
+  color: red;
+  display: inline-block;
+  position: relative;
+  top: 40%;
+  width: 100%;
+  font-size: 50px;
+  text-align: center;
+}

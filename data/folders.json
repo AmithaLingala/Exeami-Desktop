@@ -1,0 +1,24 @@
+{
+    "folders": [
+        {
+            "name": "home",
+            "path": "~",
+            "isWindow":true
+        },
+        {
+            "name": "about",
+            "path": "~/about",
+            "isWindow":true
+        },
+        {
+            "name": "contact",
+            "path": "~/contact",
+            "isWindow":true
+        },
+        {
+            "name": "blog",
+            "path": "blog",
+            "isWindow":false
+        }
+    ]
+}

@@ -1,65 +1,41 @@
-const termBox = document.getElementById('console');
+const title = document.getElementById('title');
+const windowPane = document.getElementById('window-pane');
+const desktop = document.getElementById('desktop');
 
-const commands = [
-    {
-        command: 'make tea',
-        results: [
-            'Boiling water...',
-            'Adding Ginger...',
-            'Adding tea powder...',
-            'Adding a pinch of sugar...',
-            'Boiling...',
-            '...',
-            '...',
-            'Adding Milk...',
-            'Boiling...',
-            '...',
-            '...',
-            'Done!'
-        ]
-    },
-    {
-        command: './exeami',
-        results: [
-            '...',
-            '...',
-            '...',
-            '...'
-        ]
-    }
+let folders = [];
+fetch("/data/folders.json")
+    .then(response => response.json())
+    .then(json => {
+        folders = json.folders;
+        generateFolderLinks();
+    });
 
-]
-const cursor = document.createElement('div');
-cursor.setAttribute('class', 'cursor');
-async function executeCode() {
-    for ( let i = 0; i < commands.length; i++) {
-        const item = commands[i];
-        const code = document.createElement('span');
-        code.setAttribute('class', 'code')
-        code.innerHTML = '$ ' + item.command;
-        termBox.append(code, cursor, document.createElement('br'));
-        await sleep(1000);
+function generateFolderLinks() {
+    for (let folder of folders) {
+        // Create a Folder div for every path in folders.json 
+        const iconLabel = document.createElement('span');
+        const folderDiv = document.createElement('div');
+        const icon = document.createElement('span');
 
-        for (result of item.results) {
-            const res = document.createElement('span');
-            res.setAttribute('class', 'code')
-            res.innerHTML = result + "<br>";
-            termBox.append(res, cursor);
-            await sleep(1000);
+        //Assign classes
+        iconLabel.classList.add('icon-label');
+        folderDiv.classList.add('folder');
+        icon.classList.add('icon');
+
+        // Set Label name
+        iconLabel.innerHTML = folder.name;
+        // push icon and labels to folder
+        folderDiv.append(icon, iconLabel);
+
+        folderDiv.onclick = () => {
+            if (folder.isWindow) {
+                windowPane.src = '/' + folder.name;
+                title.innerHTML = 'exeami: ' + folder.path;
+            } else {
+                windowPane.src = '/' + folder.name;
+                title.innerHTML = 'exeami: ' + folder.path;
+            }
         }
-        const pathClone = document.getElementById('userpath').cloneNode(true);
-        pathClone.innerHTML =  "<br>" + pathClone.innerHTML;
-        if(i  < commands.length-1){
-            termBox.append(pathClone, cursor);
-        }
-        
-        await sleep(2000);
+        desktop.appendChild(folderDiv);
     }
 }
-
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-executeCode();

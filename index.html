@@ -9,28 +9,19 @@
 </head>
 
 <body>
-    <div class="background">
-        <div class="terminal">
-            <div class="title-bar"><span class="title">Jillu: ~/code/website/</span><div class="actions tooltip">X<span class="tooltiptext">This doesn't do anything, DABBA!</span></div></div><br>
-            <div class="console" id="console">
-                <div id="userpath">
-                    <span class="user">ami@exeami</span>:<span class="path">~/code/website/</span>
-                    <span class="branch">(master)</span><br />
+    <div class="background" id="background">
+        <div  class="window-box" id="window-box">
+            <div class="title-bar">
+                <span class="title" id="title">exeami: ~</span>
+                <div class="actions tooltip">
+                    X
+                    <span class="tooltiptext">This doesn't do anything, DABBA!</span>
                 </div>
-                <noscript>
-                    <span class="code">
-                        You need javascript for this web page to run code!
-                    </span><br>
-                    <span class="error">
-                        Handled exeami exception: Javascript not found!
-                        at line <u>(0.0)</u>
-                    </span><br>
-                    Please enable javascript for this website, or upgrade your browser.<br>
-                    PS: We run FLOSS scripts!
-                    <div class="cursor"/>
-                </noscript>
-                
             </div>
+            <embed id="window-pane" class="window-pane" src="/home/">
+            </embed>
+        </div>
+        <div class="desktop" id="desktop">
         </div>
     </div>
     <script type="application/javascript" src="/script/main.js">

@@ -1,0 +1,54 @@
+body {
+    margin: 0 0; 
+    background-color: #424242;
+    position:absolute;
+    height:100%; width:100%;
+}
+
+.note-container {
+    position: fixed;
+    background-color: slategrey;
+    left: 15%;
+    width: 85%;
+    height: 100%;
+}
+.notes {
+    position: fixed;
+    background-color: slategrey
+}
+
+.navigator {
+    position: fixed;
+    top: 0;
+    background-color: rgb(167, 167, 167);
+    display: inline-block;
+    border: 0;
+    margin: 0;
+    width: 15%;
+    height: 100%;
+}
+
+.navigator ul {
+    margin-left: -2em;
+}
+
+li {
+    margin-bottom: 10px;
+	padding: 0 0 0 22px;
+	list-style: none;
+	background-image: url('/icons/folder.svg');
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 20px;
+}
+
+
+.navigator ul li {
+    cursor: pointer;
+    font-size: large;
+    color: black;
+}
+
+.navigator ul li:hover {
+    color: white;
+}

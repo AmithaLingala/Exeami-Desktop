@@ -1,7 +1,8 @@
 body {
     margin: 0 0; 
-    background-color: black;
-    position:absolute; height:100%; width:100%;
+    background-color: #424242;
+    position:absolute;
+    height:100%; width:100%;
     display: table;
 }
 
@@ -9,32 +10,13 @@ body {
     display: table-cell;
     vertical-align: middle;
     height: 80%;
-}
-
-.terminal {
-    border-style: solid;
-    border-width: 2px;
-    padding: 0 10px 60px 0;
-    border-color: #444444;
-    box-shadow:0 0 10px 5px #333333; 
-    margin: 0 auto;
-    background-color: #323232;
-    vertical-align: middle;
-    width: 50%;
-    height: 60%;
-}
-
-.console {
-    padding: 5px;
-    background-color: #323232;
-    color: green;
-    width: 100%;
-    height: 100%;
+    z-index: 999;
 }
 
 .title-bar {
     background-color: #222222;
-    width: 100%;
+    width: calc(100% - 10px);
+    height: 1.5em;
     color: white;
     padding: 5px;
 }
@@ -45,26 +27,54 @@ body {
     padding: 1px 3px 1px 3px;
     background-color: #222222;
 }
-.user {
-    color: green;
+.window-box {
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #444444;
+    box-shadow:0 0 10px 5px #333333;
+    width: 70%;
+    height: 85%;
 }
 
-.path {
-    color: blueviolet;
+.window-pane {
+    margin: 0 0;
+    border: 0;
+    width: calc(100%);
+    height: calc(100% - 1.5em - 10px);
+    display: block;
 }
 
-.branch {
-    color: lightblue;
+.desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 2em;
+    padding-top: 2em;
+    cursor: pointer;
 }
 
-.code {
+.folder {
+    padding: 5px;
+    text-align: center;
+}
+
+.icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-image: url(/icons/folder.svg);
+    background-size: cover;
+}
+
+.icon-label {
+    width: 100%;
     color: white;
 }
 
-.error {
-    color: red;
+.hide {
+    display: none;
 }
-
 /*Responsive Styles*/
 @media screen and (max-width : 768px) {
     .background {
@@ -72,11 +82,8 @@ body {
         vertical-align: middle;
         height: 100%;
     }
-    
-    
-    .terminal {
-        width: 90%;
-        height: 90%;
+    .icon{
+        align-self: auto;
     }
 
     .tooltip .tooltiptext {
@@ -92,22 +99,6 @@ body {
         visibility: hidden;
       }
       
-}
-
-@keyframes blinking {
-    0%{
-      background-color: #ffffff;
-    }
-    100%{
-      background-color: #00000000;
-    }
-  }
-.cursor {
-    padding-right: 5px;
-    display: inline-block;
-    width: 2px;
-    height: 10px;
-    animation: blinking 600ms infinite;
 }
 
  /* Tooltip container */
