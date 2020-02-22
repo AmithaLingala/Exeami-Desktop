@@ -2,15 +2,17 @@
 body, html {
     margin: 0 0;
     width: 100%;
-    background-color:#aaa;
+    background-color:#343a40;
 }
 
 .title{
   text-align: center;
+  color: white;
 }
 
 .description {
   text-align: center;
   font-size: x-large;
   font-style: italic;
+  color: white;
 }

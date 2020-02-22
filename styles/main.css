@@ -72,6 +72,12 @@ body {
     color: white;
 }
 
+.logo {
+    float: right;
+    height: 5em;
+    padding: 0 10px;
+}
+
 .hide {
     display: none;
 }
