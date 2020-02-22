@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/main.css">
-    <link rel="icon" type="image/png" href="/icons/logo -light.svg">
+    <link rel="icon" type="image/png" href="/icons/logo-light.svg">
     <title>ExeAmi</title>
 </head>
 
@@ -14,16 +14,18 @@
         <div  class="window-box" id="window-box">
             <div class="title-bar">
                 <span class="title" id="title">exeami: ~</span>
-                <div class="actions tooltip">
+                <div class="actions" id="close">
                     X
-                    <span class="tooltiptext">This doesn't do anything! :P</span>
                 </div>
             </div>
             <embed id="window-pane" class="window-pane" src="/home/"/>
         </div>
         <div class="desktop" id="desktop">
         </div>
-        <img src="/icons/logo -light.svg" class='logo'/>
+        <div class="logo">
+          <img src="/icons/logo-light.svg" class="logo" id="logo"/>
+          <img src="/icons/speechbubble.svg" class="bubble hide" id="bubble">
+        </div>
     </div>
     <script type="application/javascript" src="/script/main.js">
     </script>

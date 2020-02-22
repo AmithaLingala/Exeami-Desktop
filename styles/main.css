@@ -1,5 +1,5 @@
 body {
-    margin: 0 0; 
+    margin: 0 0;
     background-color: #424242;
     position:absolute;
     height:100%; width:100%;
@@ -21,7 +21,11 @@ body {
     padding: 5px;
 }
 
+.hide {
+  display: none;
+}
 .actions {
+    cursor: pointer;
     float: right;
     color: white;
     padding: 1px 3px 1px 3px;
@@ -72,10 +76,20 @@ body {
     color: white;
 }
 
+.lion {
+    float: right;
+    height: 20em;
+    padding-top: 10em;
+}
+
 .logo {
     float: right;
     height: 5em;
-    padding: 0 10px;
+}
+
+.bubble {
+    float: right;
+    height: 20em;
 }
 
 .hide {
@@ -94,17 +108,17 @@ body {
 
     .tooltip .tooltiptext {
         height: 50px;
-      
+
         /* Position the tooltip text */
         top: 125%;
         margin-left: -100px !important;
       }
-      
+
       /* Tooltip arrow */
       .tooltip .tooltiptext::after {
         visibility: hidden;
       }
-      
+
 }
 
  /* Tooltip container */
@@ -113,7 +127,7 @@ body {
     display: inline-block;
     border-bottom: 1px dotted black;
   }
-  
+
   /* Tooltip text */
   .tooltip .tooltiptext {
     visibility: hidden;
@@ -123,19 +137,19 @@ body {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-  
+
     /* Position the tooltip text */
     position: absolute;
     z-index: 1;
     bottom: 125%;
     left: 50%;
     margin-left: -60px;
-  
+
     /* Fade in tooltip */
     opacity: 0;
     transition: opacity 0.3s;
   }
-  
+
   /* Tooltip arrow */
   .tooltip .tooltiptext::after {
     content: "";
@@ -147,9 +161,9 @@ body {
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
-  
+
   /* Show the tooltip text when you mouse over the tooltip container */
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-  } 
+  }
