@@ -17,6 +17,9 @@ fetch('/data/posts.json')
 
 async function populateIndex() {
     for (let post of posts) {
+        if(post.hide) {
+            continue;
+        }
         const item = document.createElement('li');
         item.innerHTML = post.name;
         item.onclick = () => {

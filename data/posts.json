@@ -2,11 +2,12 @@
     "posts": [
         {
             "id": 0,
-            "name":"UwU"
+            "name":"UwU",
+            "hide": true
         },
         {
             "id": 1,
-            "name":"Ammu"
+            "name":"Welcome"
         }
     ]
 }
