@@ -82,6 +82,9 @@ body {
     padding-top: 10em;
 }
 
+.message {
+  float: right;
+}
 .logo {
     float: right;
     height: 5em;
