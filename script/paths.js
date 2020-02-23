@@ -1,12 +1,14 @@
+let blogs = [];
+fetch('/data/posts.json').then(response=>response.json()).then(json=>blogs.push(...json.posts));
 export default {
   path:"/home/user/exeami",
   name:"home",
-  type:"directrory",
+  type:"directory",
   children:[
     {
       name: "terminal",
       path: "/home/user/exeami/terminal",
-      type:"file"
+      type:"application"
     },
     {
       name: "about",
@@ -21,7 +23,8 @@ export default {
     {
       name: "blog",
       path: "/home/user/exeami/blog",
-      type: "file"
+      type: "directory", 
+      children: blogs
     }
   ]
 }

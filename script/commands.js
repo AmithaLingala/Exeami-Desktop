@@ -16,7 +16,7 @@ export class Commands {
   async ls() {
     const names = [];
     if(this.currentPath.children){
-      this.currentPath.children.forEach(child => names.push(child.name));
+      this.currentPath.children.forEach(child => {if(!child.hide) {names.push(child.name)}});
     }
     return {
       path: this.currentPath.path,
@@ -47,9 +47,9 @@ export class Commands {
         let paths = path.split('/');
         let dir = this.currentPath.children.filter(child => child.name == paths[0]);
         if(dir.length === 0 ) {
-            results = ['No such directrory']
-        }else if (dir[0].type !== 'directrory') {
-            results = [paths[0] + ' is not a directrory'];
+            results = ['No such directory']
+        }else if (dir[0].type !== 'directory') {
+            results = [paths[0] + ' is not a directory'];
         } else {
           this.currentPath = dir[0];
           if(paths.length > 1) {

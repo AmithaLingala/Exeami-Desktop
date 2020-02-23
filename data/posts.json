@@ -3,11 +3,13 @@
         {
             "id": 0,
             "name":"UwU",
-            "hide": true
+            "hide": true,
+            "type":"file"
         },
         {
             "id": 1,
-            "name":"Welcome"
+            "name":"Welcome",
+            "type":"file"
         }
     ]
 }

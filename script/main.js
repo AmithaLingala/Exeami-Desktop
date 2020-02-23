@@ -49,7 +49,7 @@ function generateFolderLink(folder) {
   //Assign classes
   iconLabel.classList.add('icon-label');
   folderDiv.classList.add('folder');
-  icon.classList.add('icon');
+  icon.classList.add(folder.type);
 
   // Set Label name
   iconLabel.innerHTML = folder.name;
