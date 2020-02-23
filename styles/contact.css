@@ -39,8 +39,7 @@ body, html {
 }
 
 .info {
-    position: absolute;
-    left: 10em;
+    margin-left: 5em;
     display: inline-block;
     font-style: italic;
 }
