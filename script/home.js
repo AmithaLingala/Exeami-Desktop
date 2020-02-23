@@ -53,7 +53,7 @@ async function executeCode() {
         if(i  < commands.length-1){
             termBox.append(pathClone, cursor);
         }
-        
+
         await sleep(2000);
     }
 }
