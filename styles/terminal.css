@@ -1,0 +1,85 @@
+body{
+    margin: 0 0;
+    width: 100%;
+    height: 100%;
+    background-color: #323232;
+}
+.terminal {
+    border-style: solid;
+    border-width: 2px;
+    padding: 0 10px 60px 0;
+    border-color: #444444;
+    box-shadow:0 0 10px 5px #333333;
+    background-color: #323232;
+    /* position: fixed; */
+    /* top: 15%; */
+    /* left: 25%; */
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 50%;
+    height: 60%;
+}
+
+.term-box {
+    padding: 5px;
+    background-color: #323232;
+    color: green;
+}
+
+.user {
+    color: green;
+}
+
+.path {
+    color: blueviolet;
+}
+
+.branch {
+    color: lightblue;
+}
+
+.code {
+    width: 100%;
+    height: 2em;
+    color: white;
+    outline: none;
+    border: 0;
+}
+.input-span {
+  width: 100%;
+  background-color: #525252;
+  overflow: hidden;
+  color: white;
+}
+.input {
+    width: 90%;
+    height: 2em;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    margin: 0 0;
+}
+
+.input:before {
+  value: "$ ";
+}
+.error {
+    color: red;
+}
+@keyframes blinking {
+    0%{
+      background-color: #ffffff;
+    }
+    100%{
+      background-color: #00000000;
+    }
+  }
+
+.cursor {
+    padding-right: 5px;
+    display: inline-block;
+    width: 2px;
+    height: 10px;
+    animation: blinking 600ms infinite;
+}

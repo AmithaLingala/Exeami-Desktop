@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+    <link rel="stylesheet" type="text/css" href="/styles/terminal.css">
 </head>
 <body>
     <div class="term-box" id="term-box">
-        <div id="userpath">
-            <span class="user">ami@exeami</span>:<span class="path">~</span>
-            <span class="branch">(master)</span><br>
-        </div>
         <noscript>
             <span class="code">
                 You need javascript for this web page to run code!
@@ -24,7 +20,9 @@
             <div class="cursor">
         </noscript>
     </div>
-    <script type="application/javascript" src="/script/home.js">
+
+    <script type="module" src="/script/commands.js"></script>
+    <script type="module" src="/script/terminal.js">
     </script>
 </body>
 </html>
