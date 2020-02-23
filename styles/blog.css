@@ -32,12 +32,11 @@ body {
     width: 100em;
     height: 100%;
 }
-.arrow{
+.menu{
     display: inline-block;
     cursor: pointer;
-    font-size: xx-large;
-    padding-left: 3px;
-  
+    font-size: x-large;
+    padding-left: 3px; 
 }
 .navigator ul {
     margin-left: -2em;
