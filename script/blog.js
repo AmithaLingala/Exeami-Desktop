@@ -20,19 +20,15 @@ fetch('/data/posts.json')
         notes = clone;
     });
 arrow.onclick = () => {
-    
     const style = window.getComputedStyle(navigator1);
-    let wd = style.getPropertyValue('width');
-    let gwd = window.screen.width;
-    let percent = wd.substring(0, wd.length-2)/gwd *100;
-    console.log(percent);
-    
-    if (percent > 3) {
+    const wd = style.getPropertyValue('width');
+    // pixel to em
+    const em = wd.substring(0, wd.length-2)/ 16;
+    if (em > 2) {
         navigator1.style.width = "2em";
         index.classList.add('hide');
         noteContainer.classList.add('left');
-    }
-    else {
+    } else {
         navigator1.style.width = "250em";
         index.classList.remove('hide');
         noteContainer.classList.remove('left');

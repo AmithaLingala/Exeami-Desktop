@@ -34,10 +34,10 @@ body {
 }
 .arrow{
     display: inline-block;
-    font-weight: 800;
     cursor: pointer;
     font-size: xx-large;
-    color: black;
+    padding-left: 3px;
+  
 }
 .navigator ul {
     margin-left: -2em;
