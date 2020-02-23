@@ -7,6 +7,7 @@ const bubble = document.getElementById('bubble');
 const homebutton = document.getElementById('home-button');
 const titlebar = document.getElementById('title-bar');
 
+let isPrevMobile = null;
 let isMobile = false;
 let windowPane = document.getElementById('window-pane');
 
@@ -22,7 +23,8 @@ close.onclick = () => {
     logo.classList.add('lion');
     bubble.classList.remove('hide');
 };
-function mobileView() {
+
+function mobileViewToggle() {
     homebutton.onclick = () => {
         windowBox.classList.add('hide');
         desktop.classList.remove('hide');
@@ -32,13 +34,27 @@ function mobileView() {
     if (style.getPropertyValue('display') === 'block') {
         isMobile = true;
     }
+    if(isPrevMobile === isMobile){return;}
     // now i can use is_mobile to run javascript conditionally
+    isPrevMobile = isMobile;
+    if (isMobile == true) {
+        windowBox.classList.add('hide');
+        desktop.classList.remove('hide');
+        logo.classList.add('hide');
+        bubble.classList.add('hide');
+    } else {
+        logo.classList.remove('hide');
+        desktop.classList.remove('hide');
+        titlebar.classList.remove('hide');
 
-  if (isMobile == true) {
-      windowBox.classList.add('hide');
-      desktop.classList.remove('hide');
-      logo.classList.add('hide');
-  }
+        if(windowBox.classList.contains('hide')) {
+          logo.classList.remove('logo');
+          logo.classList.add('lion');
+          bubble.classList.remove('hide');
+        }
+        windowBox.style.width = "70%";
+        windowBox.style.height = "80%";
+    }
 }
 
 function generateFolderLink(folder) {
@@ -83,4 +99,5 @@ function generateFolderLink(folder) {
   desktop.appendChild(folderDiv);
 }
 
-document.onload = mobileView();
+document.onload = mobileViewToggle();
+document.getElementsByTagName("BODY")[0].onresize = function() {mobileViewToggle()};
