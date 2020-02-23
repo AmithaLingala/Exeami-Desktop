@@ -1,7 +1,12 @@
 const index = document.getElementById('index');
+const arrow = document.getElementById('arrow');
+const noteContainer = document.getElementById('note-container');
+let navigator1 = document.getElementById('navigator');
 let notes = document.getElementById('notes');
 let posts = [];
-
+navigator1.style.width = "2em";
+index.classList.add('hide');
+noteContainer.classList.add('left');
 fetch('/data/posts.json')
     .then(response => response.json())
     .then(json => {
@@ -14,12 +19,32 @@ fetch('/data/posts.json')
         notes.parentNode.replaceChild(clone, notes)
         notes = clone;
     });
+arrow.onclick = () => {
+    
+    const style = window.getComputedStyle(navigator1);
+    let wd = style.getPropertyValue('width');
+    let gwd = window.screen.width;
+    let percent = wd.substring(0, wd.length-2)/gwd *100;
+    console.log(percent);
+    
+    if (percent > 3) {
+        navigator1.style.width = "2em";
+        index.classList.add('hide');
+        noteContainer.classList.add('left');
+    }
+    else {
+        navigator1.style.width = "250em";
+        index.classList.remove('hide');
+        noteContainer.classList.remove('left');
+    }
 
+}
 async function populateIndex() {
     for (let post of posts) {
-        if(post.hide) {
+        if (post.hide) {
             continue;
         }
+
         const item = document.createElement('li');
         item.innerHTML = post.name;
         item.onclick = () => {
@@ -32,7 +57,12 @@ async function populateIndex() {
             clone.setAttribute('src', '/blog/page/' + post.id);
             notes.parentNode.replaceChild(clone, notes)
             notes = clone;
+            navigator1.style.width = "2em";
+        index.classList.add('hide');
+        noteContainer.classList.add('left');
+            
         };
         index.append(item);
+
     }
 }

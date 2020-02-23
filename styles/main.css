@@ -24,6 +24,7 @@ body {
 .hide {
   display: none;
 }
+
 .actions {
     cursor: pointer;
     float: right;
@@ -38,7 +39,7 @@ body {
     border-color: #444444;
     box-shadow:0 0 10px 5px #333333;
     width: 70%;
-    height: 85%;
+    height: 70%;
 }
 
 .window-pane {
@@ -98,12 +99,28 @@ body {
 .hide {
     display: none;
 }
+.home-button{
+    display: none;
+   
+
+}
 /*Responsive Styles*/
 @media screen and (max-width : 768px) {
     .background {
         display: table-cell;
         vertical-align: middle;
-        height: 100%;
+        height: 95%;
+        margin: 0 0;
+    }
+    .home-button{
+        position: absolute;
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        text-align: center;
+        left: calc(50% - 0.5em);
+        top: 94%;
+       
     }
     .icon{
         align-self: auto;
