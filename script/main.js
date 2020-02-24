@@ -37,11 +37,19 @@ function mobileViewToggle() {
     if(isPrevMobile === isMobile){return;}
     // now i can use is_mobile to run javascript conditionally
     isPrevMobile = isMobile;
+    const windowStyle = window.getComputedStyle(windowBox);
     if (isMobile == true) {
-        windowBox.classList.add('hide');
-        desktop.classList.remove('hide');
+        // windowBox.classList.add('hide');
+        if (windowBox.classList.contains('hide')) {
+          desktop.classList.remove('hide');
+        } else {
+          desktop.classList.add('hide');
+        }
+        titlebar.classList.add('hide');
         logo.classList.add('hide');
         bubble.classList.add('hide');
+        windowBox.style.width = "98%";
+        windowBox.style.height = "98%"
     } else {
         logo.classList.remove('hide');
         desktop.classList.remove('hide');
