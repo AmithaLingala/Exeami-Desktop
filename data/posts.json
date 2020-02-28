@@ -10,6 +10,11 @@
             "id": 1,
             "name":"Welcome",
             "type":"file"
+        },
+        {
+            "id": 2,
+            "name":"Why should I switch to Signal?",
+            "type":"file"
         }
     ]
 }
