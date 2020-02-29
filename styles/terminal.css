@@ -61,9 +61,6 @@ body{
     margin: 0 0;
 }
 
-.input:before {
-  value: "$ ";
-}
 .error {
     color: red;
 }

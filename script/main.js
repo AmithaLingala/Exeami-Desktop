@@ -17,6 +17,11 @@ folders.children.forEach((folder, i) => {
   generateFolderLink(folder);
 });
 
+homebutton.onclick = () => {
+  windowBox.classList.add('hide');
+  desktop.classList.remove('hide');
+}
+
 close.onclick = () => {
     windowBox.classList.add('hide')
     logo.classList.remove('logo');
@@ -24,21 +29,18 @@ close.onclick = () => {
     bubble.classList.remove('hide');
 };
 
-function mobileViewToggle() {
-    homebutton.onclick = () => {
-        windowBox.classList.add('hide');
-        desktop.classList.remove('hide');
-    }
-    isMobile = false;
+function mobileViewToggle(isFirst = false) {
     const style = window.getComputedStyle(homebutton)
-    if (style.getPropertyValue('display') === 'block') {
-        isMobile = true;
+    isMobile = style.getPropertyValue('display') === 'block';
+    if  (isFirst && !isMobile) {
+      windowBox.classList.remove("hide");
+      logo.classList.remove('hide');
     }
+
     if(isPrevMobile === isMobile){return;}
-    // now i can use is_mobile to run javascript conditionally
+    // now i can use isMobile to run javascript conditionally
     isPrevMobile = isMobile;
-    const windowStyle = window.getComputedStyle(windowBox);
-    if (isMobile == true) {
+    if (isMobile === true) {
         // windowBox.classList.add('hide');
         if (windowBox.classList.contains('hide')) {
           desktop.classList.remove('hide');
@@ -82,13 +84,11 @@ function generateFolderLink(folder) {
 
   folderDiv.onclick = () => {
       if(isMobile) {
-          desktop.classList.add('hide');
-          titlebar.classList.add('hide');
-          logo.classList.add('hide');
-          // const st = window.getComputedStyle(windowBox)
-          // st.setProperty("width","100%");
-          windowBox.style.width = "98%";
-          windowBox.style.height = "98%";
+        desktop.classList.add('hide');
+        titlebar.classList.add('hide');
+        logo.classList.add('hide');
+        windowBox.style.width = "98%";
+        windowBox.style.height = "98%";
       }
       // windowPane.src = '/' + folder.name;
       /** The following is a workaround since neither chrome nor edge supports latest embed standard
@@ -98,6 +98,7 @@ function generateFolderLink(folder) {
       logo.classList.add('logo');
       logo.classList.remove('lion');
       bubble.classList.add('hide');
+
       const clone = windowPane.cloneNode(true);
       clone.setAttribute('src', folder.name);
       windowPane.parentNode.replaceChild(clone, windowPane)
@@ -107,5 +108,5 @@ function generateFolderLink(folder) {
   desktop.appendChild(folderDiv);
 }
 
-document.onload = mobileViewToggle();
+document.onload = mobileViewToggle(true);
 document.getElementsByTagName("BODY")[0].onresize = function() {mobileViewToggle()};

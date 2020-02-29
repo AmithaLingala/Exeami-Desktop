@@ -1,8 +1,7 @@
-body {
+html, body {
     margin: 0 0; 
     background-color: #343a40;
-    position:absolute;
-    height:100%; width:100%;
+    height:99.724%; width:100%;
 }
 
 .note-container {
