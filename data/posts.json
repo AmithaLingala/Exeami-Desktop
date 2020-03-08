@@ -15,6 +15,11 @@
             "id": 2,
             "name":"Why should I switch to Signal?",
             "type":"file"
+        },
+        {
+            "id": 3,
+            "name":"C# Delegate",
+            "type":"file"
         }
     ]
 }

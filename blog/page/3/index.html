@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Delegate</title>
+    <style>
+        pre {
+            font-size: larger;
+            color: white;
+        }
+        h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>C# Delegate</h1>
+    <pre>
+What is Delegate?
+   A delegate is a function pointer in C#. It is a reference type data type and it holds the reference of a method. 
+    All the delegates are implicitly derived from "System.Delegate" class.
+
+Syntax:
+
+   [accsess modifier] delegate [return type] [delegate name](parameters)
+
+    E.g. 1:     public delegate void Del(string str);
+    
+Delegate can be used to point to any method that has same return type & parameters declared with delegate
+
+Consider the following method with the same return type and parameters as our "Del" in Example 1
+
+	void Greet(string name)
+	{
+        Console.WriteLine("Hello"+ name);
+    }
+    
+Now you can create the instance of our delegate like 
+
+ 	Del del1 = new Del(Greet);
+        (Or)
+    
+ Del del2 = Greet;
+
+Both does the same thing for us. 
+
+
+
+</pre>
+</body>
+</html>
