@@ -4,49 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C# Delegate</title>
-    <style>
-        pre {
-            font-size: larger;
-            color: white;
-        }
-        h1 {
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/theme.css">
+
+    <link rel="stylesheet" href="/script/code/highlight/styles/atom-one-dark.css">
 </head>
 <body>
-    <h1>C# Delegate</h1>
-    <pre>
-What is Delegate?
-   A delegate is a function pointer in C#. It is a reference type data type and it holds the reference of a method. 
-    All the delegates are implicitly derived from "System.Delegate" class.
+    <h1 class="title">C# Delegate</h1>
 
-Syntax:
-
-   [accsess modifier] delegate [return type] [delegate name](parameters)
-
-    E.g. 1:     public delegate void Del(string str);
-    
-Delegate can be used to point to any method that has same return type & parameters declared with delegate
-
-Consider the following method with the same return type and parameters as our "Del" in Example 1
-
-	void Greet(string name)
-	{
-        Console.WriteLine("Hello"+ name);
-    }
-    
-Now you can create the instance of our delegate like 
-
- 	Del del1 = new Del(Greet);
-        (Or)
-    
- Del del2 = Greet;
-
-Both does the same thing for us. 
-
-
-
+<span class="question">What is Delegate?</span>
+<pre class="statement">
+  A delegate is a function pointer in C#. It is a reference type data type and it holds the reference of a method.
+  All the delegates are implicitly derived from "System.Delegate" class.
 </pre>
+<div class="block">
+  <span class="title">Syntax:</span><br>
+  <span class="desc">[accsess modifier] delegate [return type] [delegate name](parameters)</span>
+  <pre><code class="cs">public delegate void Del ( string str );</code></pre>
+  </pre>
+</div>
+
+<pre class="statement">
+Delegate can be used to point to any method that has same return type & parameters declared with delegate
+Consider the following method with the same return type and parameters as our "Del" in Example 1
+</pre>
+<pre><code class="cs">
+  void Greet ( string name )
+  {
+    Console.WriteLine("Hello"+ name);
+  }
+</code></pre>
+<pre class="statement">
+Now you can create the instance of our delegate like the following,
+</pre>
+<pre><code class="cs">
+  Del del1 = new Del (Greet);
+
+  // Or
+
+  Del del2 = Greet;
+</code></pre>
+<pre class="statement">
+Both does the same thing for us.
+</pre>
+<script type="text/javascript" src="/script/code/highlight/highlight.pack.js"> </script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

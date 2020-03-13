@@ -56,7 +56,7 @@ async function populateIndex() {
             navigator1.style.width = "2em";
         index.classList.add('hide');
         noteContainer.classList.add('left');
-            
+
         };
         index.append(item);
 
