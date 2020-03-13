@@ -23,7 +23,7 @@ input.onkeypress = (event) => {
   }
 }
 
-async function clear(){
+function clear(){
   termBox.innerHTML = '';
 }
 
@@ -42,6 +42,8 @@ async function executeCode(code) {
         setPath(response.path);
         print(response.results);
       }
+    } else {
+      print(['No such command!']);
     }
   }
 
@@ -56,28 +58,25 @@ function setPath(dir){
   clone.textContent = '';
   const user = document.createElement('span');
   const path = user.cloneNode(true);
-  const branch = user.cloneNode(true);
 
   user.classList.add('user');
   path.classList.add('path');
-  branch.classList.add('branch');
 
   user.innerHTML = 'ami@exeami';
   path.innerHTML = dir;
-  branch.innerHTML = ' (master)';
 
-  clone.append(user,':',path, branch);
+  clone.append(user,':',path);
   userpath = clone;
   termBox.append(userpath);
 }
 async function init() {
-    setPath('/home/user/exeami');
+    setPath((await commands.pwd()).results[0]);
     termBox.append(inputDiv);
     input.value = '';
     input.focus();
 }
 
-function print(results){
+async function print(results){
     const output = document.createElement('span');
     output.setAttribute('class', 'code');
     results.forEach(result => output.innerHTML += (result + '<br>'));

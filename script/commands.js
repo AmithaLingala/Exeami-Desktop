@@ -1,4 +1,3 @@
-
 import paths from '/script/paths.js';
 
 export class Commands {
@@ -27,6 +26,7 @@ export class Commands {
 
   async sleep(ms) {
       let result = await sleepMethod(ms[0]);
+      console.log(result)
       return {
         path: this.currentPath.path,
         results: [result],
@@ -64,13 +64,11 @@ export class Commands {
         clear: false
       };
     }
-    return {
-      path: this.currentPath.path,
-      results: [],
-      clear: false
-    };
   }
 
+  async cat (params) {
+    params = params[0];
+  }
   async clear(){
     return {
       path: this.currentPath.path,

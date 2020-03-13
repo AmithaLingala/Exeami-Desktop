@@ -14,7 +14,9 @@ let windowPane = document.getElementById('window-pane');
 import {folders} from '/script/commands.js'
 
 folders.children.forEach((folder, i) => {
-  generateFolderLink(folder);
+  if(! folder.hide){
+    generateFolderLink(folder);
+  }
 });
 
 homebutton.onclick = () => {
