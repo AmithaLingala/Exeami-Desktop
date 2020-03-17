@@ -53,7 +53,14 @@ export default class Paths {
             {
               name: "Documents",
               path: "/home/Documents",
-              type:"directory"
+              type:"directory",
+              children:[
+                {
+                  name: "My_Resume.pdf",
+                  path: "/home/Documents/My_Resume.pdf",
+                  type:"file"
+                },
+              ]
             },
             {
               name: "Videos",
@@ -63,7 +70,14 @@ export default class Paths {
             {
               name: "Pictures",
               path: "/home/Pictures",
-              type:"directory"
+              type:"directory",
+              children:[
+                {
+                  name: "Logo.png",
+                  path: "/home/Pictures/Logo.png",
+                  type:"image"
+                },
+              ]
             },
             {
               name: "Music",
@@ -81,12 +95,12 @@ export default class Paths {
         {
           name: "about",
           path: "/about",
-          type:"file"
+          type:"link"
         },
         {
           name: "contact",
           path: "/contact",
-          type:"file"
+          type:"link"
         }
       ]
     }

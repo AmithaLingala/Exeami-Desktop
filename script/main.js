@@ -32,9 +32,12 @@ init();
 
 function closeOperation(isMobile) {
   let oDoc = windowPane.contentWindow || windowPane.contentDocument;
-  if (oDoc.document) {
-      oDoc = oDoc.document;
-  }
+  
+  let prevPath = oDoc.location; 
+  console.log(""+prevPath);
+  // if (oDoc.document) {
+  //     oDoc = oDoc.document;
+  // }
   const urlParams = new URLSearchParams(oDoc.location.search);
   const path = urlParams.get('prev');
   if(path) {

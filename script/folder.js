@@ -11,7 +11,7 @@ async function renderFolders() {
   const folders = await commands.getFiles();
   console.log(folders);
   folders.forEach(folder => {
-
+    if(!folder.hide) {
       const iconLabel = document.createElement('span');
       const folderDiv = document.createElement('div');
       const icon = document.createElement('span');
@@ -30,11 +30,14 @@ async function renderFolders() {
       folderDiv.onclick = () => {
           if(folder.type == 'directory') {
             location.href ='/folder?path='+folder.path
-          } else {
-            console.log(`${path}?path=${folder.name}&prev=_${location.href}_`);
+          } else if(folder.type == 'link'){
+            // console.log(`${path}?path=${folder.name}&prev=_${location.href}_`);
             location.href = `${path}?path=${folder.name}&prev=_${location.href}_`;
+          } else {
+            location.href=`/file/?path=${folder.path}&prev=_${location.href}_`;
           }
       }
+    }
   });
 }
 renderFolders();

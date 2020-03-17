@@ -81,6 +81,13 @@ body {
     background-size: cover;
 }
 
+.link {
+    display: block;
+    width: 55px;
+    height: 55px;
+    background-image: url(/icons/file.svg);
+    background-size: cover;
+}
 .application {
     display: block;
     width: 50px;

@@ -4,25 +4,25 @@
             "id": 0,
             "name":"UwU",
             "hide": true,
-            "type":"file",
+            "type":"link",
             "path":"/blog/UwU"
         },
         {
             "id": 1,
             "name":"Welcome",
-            "type":"file",
+            "type":"link",
             "path":"/blog/Welcome"
         },
         {
             "id": 2,
             "name":"Why should I switch to Signal?",
-            "type":"file",
+            "type":"link",
             "path":"/blog/Why should I switch to Signal?"
         },
         {
             "id": 3,
             "name":"Delegate",
-            "type":"file",
+            "type":"link",
             "path":"/blog/Delegate"
         }
     ]
