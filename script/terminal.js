@@ -3,7 +3,7 @@ import {Commands} from '/script/commands.js'
 const termBox = document.getElementById('term-box');
 const inputDiv = document.createElement('div');
 const input = document.createElement('input');
-const commands = new Commands();
+const commands = Commands.getInstance();
 let userpath = document.createElement('div');
 
 inputDiv.innerHTML = '$ '
@@ -14,7 +14,7 @@ inputDiv.setAttribute('class', 'input-span');
 
 input.onkeypress = (event) => {
   if(event.keyCode == 13) {
-    let code = document.createElement('span');
+    const code = document.createElement('span');
     code.classList.add('code');
     code.innerHTML = '$ '+input.value + '<br>';
     termBox.append(code);

@@ -10,26 +10,49 @@ const titlebar = document.getElementById('title-bar');
 let isPrevMobile = null;
 let isMobile = false;
 let windowPane = document.getElementById('window-pane');
+import Paths from '/script/paths.js'
 
-import {folders} from '/script/commands.js'
+async function init() {
+  const folders = await Paths.getInstance().getPaths();
+  folders.children.forEach((folder, i) => {
+    if(!folder.hide) {
+      generateFolderLink(folder);
+    }
+  });
 
-folders.children.forEach((folder, i) => {
-  if(! folder.hide){
-    generateFolderLink(folder);
+  homebutton.onclick = () => {
+    closeOperation(true);
   }
-});
 
-homebutton.onclick = () => {
-  windowBox.classList.add('hide');
-  desktop.classList.remove('hide');
+  close.onclick = () => {
+    closeOperation(false);
+  };
 }
+init();
 
-close.onclick = () => {
-    windowBox.classList.add('hide')
-    logo.classList.remove('logo');
-    logo.classList.add('lion');
-    bubble.classList.remove('hide');
-};
+function closeOperation(isMobile) {
+  let oDoc = windowPane.contentWindow || windowPane.contentDocument;
+  if (oDoc.document) {
+      oDoc = oDoc.document;
+  }
+  const urlParams = new URLSearchParams(oDoc.location.search);
+  const path = urlParams.get('prev');
+  if(path) {
+    const clone = windowPane.cloneNode(true);
+    clone.setAttribute('src', path.replace(/_/g,""));
+    windowPane.parentNode.replaceChild(clone, windowPane)
+    windowPane = clone;
+  }else {
+    windowBox.classList.add('hide');
+    if(isMobile) {
+      desktop.classList.remove('hide');
+    } else {
+      logo.classList.remove('logo');
+      logo.classList.add('lion');
+      bubble.classList.remove('hide');
+    }
+  }
+}
 
 function mobileViewToggle(isFirst = false) {
     const style = window.getComputedStyle(homebutton)
@@ -102,7 +125,12 @@ function generateFolderLink(folder) {
       bubble.classList.add('hide');
 
       const clone = windowPane.cloneNode(true);
-      clone.setAttribute('src', folder.name);
+
+      if(folder.type == 'directory') {
+        clone.setAttribute('src', '/folder?path='+folder.path)
+      } else {
+        clone.setAttribute('src', folder.name);
+      }
       windowPane.parentNode.replaceChild(clone, windowPane)
       windowPane = clone;
       title.innerHTML = 'exeami: ' + folder.path;
