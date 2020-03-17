@@ -1,40 +1,50 @@
-const index = document.getElementById('index');
-const arrow = document.getElementById('arrow');
+//const index = document.getElementById('index');
+//const arrow = document.getElementById('arrow');
 const noteContainer = document.getElementById('note-container');
-let navigator1 = document.getElementById('navigator');
+//let navigator1 = document.getElementById('navigator');
 let notes = document.getElementById('notes');
 let posts = [];
-navigator1.style.width = "2em";
-index.classList.add('hide');
+//navigator1.style.width = "2em";
+//index.classList.add('hide');
 noteContainer.classList.add('left');
+
+const urlParams = new URLSearchParams(window.location.search);
+const path = urlParams.get('path');
 fetch('/data/posts.json')
     .then(response => response.json())
     .then(json => {
         // get the last post first
         posts = json.posts.reverse();
         // A workaround as iframe decided to stick with previos link on refresh
-        populateIndex();
+//        populateIndex();
         const clone = notes.cloneNode(true);
-        clone.setAttribute('src', '/blog/page/' + posts[0].id);
+        let postIndex = 0;
+        if(path) {
+          postIndex = posts.findIndex(post=>post.name == path);
+          if(postIndex == -1) postIndex = 0;
+        }
+        clone.setAttribute('src', '/blog/page/' + posts[postIndex].id);
+
         notes.parentNode.replaceChild(clone, notes)
         notes = clone;
     });
-arrow.onclick = () => {
-    const style = window.getComputedStyle(navigator1);
-    const wd = style.getPropertyValue('width');
-    // pixel to em
-    const em = wd.substring(0, wd.length-2)/ 16;
-    if (em > 2) {
-        navigator1.style.width = "2em";
-        index.classList.add('hide');
-        noteContainer.classList.add('left');
-    } else {
-        navigator1.style.width = "250em";
-        index.classList.remove('hide');
-        noteContainer.classList.remove('left');
-    }
 
-}
+// arrow.onclick = () => {
+//     const style = window.getComputedStyle(navigator1);
+//     const wd = style.getPropertyValue('width');
+//     // pixel to em
+//     const em = wd.substring(0, wd.length-2)/ 16;
+//     if (em > 2) {
+//         navigator1.style.width = "2em";
+//         index.classList.add('hide');
+//         noteContainer.classList.add('left');
+//     } else {
+//         navigator1.style.width = "250em";
+//         index.classList.remove('hide');
+//         noteContainer.classList.remove('left');
+//     }
+//
+// }
 async function populateIndex() {
     for (let post of posts) {
         if (post.hide) {
@@ -59,6 +69,5 @@ async function populateIndex() {
 
         };
         index.append(item);
-
     }
 }

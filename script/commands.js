@@ -1,11 +1,20 @@
-import paths from '/script/paths.js';
+import Paths from '/script/paths.js';
+var dir = Paths.getInstance();
 
+let instance;
 export class Commands {
-  constructor(){
-    this.currentPath = paths;
+  static getInstance() {
+    if(!instance) {
+      instance = new Commands();
+    }
+    return instance;
   }
 
  async pwd() {
+   if(!this.currentPath) {
+     this.currentPath = await dir.getPaths();
+   }
+
    return {
      path: this.currentPath.path,
      results: [this.currentPath.path],
@@ -24,6 +33,13 @@ export class Commands {
     };
   }
 
+  async getFiles() {
+    if(!this.currentPath) {
+      this.currentPath = await dir.getPaths();
+    }
+    return this.currentPath.children;
+  }
+
   async sleep(ms) {
       let result = await sleepMethod(ms[0]);
       console.log(result)
@@ -34,36 +50,58 @@ export class Commands {
       };
   }
 
-  cd(params) {
+  async cd(params, flag) {
     params = params[0];
     let results = [];
     if(!params || params.trim().length === 0) {
-      this.currentPath = paths;
-    } else {
+      this.tempPath = this.currentPath = await dir.getPaths();
+    }
+    else {
       let path = params.trim();
       if(path.startsWith('/')) {
-
-      } else {
-        let paths = path.split('/');
-        let dir = this.currentPath.children.filter(child => child.name == paths[0]);
-        if(dir.length === 0 ) {
-            results = ['No such directory']
-        }else if (dir[0].type !== 'directory') {
-            results = [paths[0] + ' is not a directory'];
-        } else {
-          this.currentPath = dir[0];
-          if(paths.length > 1) {
-            cd(paths.splice(1).join('/'));
-          }
+        if(!this.currentPath) {
+          this.currentPath = await dir.getPaths();
         }
+        this.tempPath = this.currentPath;
+        path = path.substring(1);
+        if(path.length === 0) {
+          this.currentPath = this.tempPath;
+          return {
+            path: this.currentPath.path,
+            results: results,
+            clear: false
+          };
+        }
+      } else if (!flag) {
+        this.tempPath = this.currentPath;
       }
 
-      return {
-        path: this.currentPath.path,
-        results: results,
-        clear: false
-      };
+      let paths = path.split('/');
+      let tmpDir = this.tempPath.children.filter(child => child.name == paths[0]);
+      console.log(results)
+      if (tmpDir.length == 0 ) {
+          results = ['No such file or directory']
+      } else if (tmpDir[0].type !== 'directory') {
+          results = [paths[0] + ' is not a directory'];
+      } else {
+        this.tempPath = tmpDir[0];
+        if(paths.length > 1) {
+          let ret = await this.cd([paths.splice(1).join('/')], true);
+          if (ret.results.length === 0 ) {
+            this.currentPath = this.tempPath;
+          } else {
+            results = ret.results;
+          }
+        } else {
+          this.currentPath = this.tempPath;
+        }
+      }
     }
+    return {
+      path: this.currentPath.path,
+      results: results,
+      clear: false
+    };
   }
 
   async cat (params) {
@@ -82,4 +120,4 @@ async function sleepMethod(ms) {
     return new Promise(resolve => setTimeout(()=> resolve(''), ms));
 }
 
-export const folders = paths;
+export const folders = dir.getPaths();

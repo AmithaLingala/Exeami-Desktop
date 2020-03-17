@@ -1,78 +1,101 @@
-let blogs = [];
-fetch('/data/posts.json').then(response=>response.json()).then(json=>blogs.push(...json.posts));
-// This is not something that I wanted to add,
-// if there is a way to dynamically get all files(modules) from client in the future,
-// please do make a pull request - Coding Otaku
-
-const binCommands = ['pwd', 'ls', 'sleep', 'cd']
-      .sort()
-      .map(cmd => generateCommandPath(cmd, 'js', '/bin/'+cmd));
-
 function generateCommandPath(name, type, path) {
   return {
     path, name, type
   }
 }
 
-export default {
-  path:"/",
-  name:"root",
-  type:"directory",
-  children:[
-    {
-      name: "terminal",
-      path: "/terminal",
-      type:"application"
-    },
-    {
-      name: "home",
-      path: "/home",
+let instance = null;
+export default class Paths {
+  constructor(){
+    this.isGenerated = false
+    this.generatePaths();
+  }
+
+  static getInstance() {
+    if(instance == null) {
+      instance = new Paths();
+    }
+    return instance;
+  }
+
+  async generatePaths() {
+    if(this.isGenerated) {
+      return;
+    }
+    let blogs = []
+    await fetch('/data/posts.json').then(response=>response.json()).then(json=>blogs.push(...json.posts));
+    const binCommands = ['pwd', 'ls', 'sleep', 'cd']
+          .sort()
+          .map(cmd => generateCommandPath(cmd, 'js', '/bin/'+cmd));
+
+    let value = {
+      path:"/",
+      name:"root",
       type:"directory",
       children:[
         {
-          name: "Documents",
-          path: "/home/Documents",
-          type:"directory"
+          name: "bin",
+          path: "/bin",
+          type: "directory",
+          children: binCommands,
+          hide:true
         },
         {
-          name: "Videos",
-          path: "/home/Videos",
-          type:"directory"
+          name: "terminal",
+          path: "/terminal",
+          type:"application"
         },
         {
-          name: "Pictures",
-          path: "/home/Pictures",
-          type:"directory"
+          name: "home",
+          path: "/home",
+          type:"directory",
+          children:[
+            {
+              name: "Documents",
+              path: "/home/Documents",
+              type:"directory"
+            },
+            {
+              name: "Videos",
+              path: "/home/Videos",
+              type:"directory"
+            },
+            {
+              name: "Pictures",
+              path: "/home/Pictures",
+              type:"directory"
+            },
+            {
+              name: "Music",
+              path: "/home/Music",
+              type:"directory"
+            },
+          ]
         },
         {
-          name: "Music",
-          path: "/home/Music",
-          type:"directory"
+          name: "blog",
+          path: "/blog",
+          type: "directory",
+          children: blogs
         },
+        {
+          name: "about",
+          path: "/about",
+          type:"file"
+        },
+        {
+          name: "contact",
+          path: "/contact",
+          type:"file"
+        }
       ]
-    },
-    {
-      name: "about",
-      path: "/about",
-      type:"file"
-    },
-    {
-      name: "bin",
-      path: "/bin",
-      type: "directory",
-      children: binCommands,
-      hide:true
-    },
-    {
-      name: "contact",
-      path: "/contact",
-      type:"file"
-    },
-    {
-      name: "blog",
-      path: "/blog",
-      type: "directory",
-      children: blogs
     }
-  ]
+    window.localStorage.setItem('paths', JSON.stringify(value));
+    this.isGenerated = true;
+  }
+
+  async getPaths() {
+    await this.generatePaths();
+    return JSON.parse(window.localStorage.getItem('paths'));
+  }
 }
