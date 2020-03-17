@@ -74,7 +74,7 @@ export default class Paths {
               children:[
                 {
                   name: "Logo.png",
-                  path: "/home/Pictures/Logo.png",
+                  path: "/home/Pictures/logo.png",
                   type:"image"
                 },
               ]
