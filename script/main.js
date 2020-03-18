@@ -1,4 +1,3 @@
-const title = document.getElementById('title');
 const close = document.getElementById('close');
 const maximize = document.getElementById('maximize');
 const restore = document.getElementById('restore');
@@ -40,13 +39,18 @@ async function init() {
 }
 init();
 
-function closeOperation(isMobile) {
+function closeOperation() {
   let oDoc = windowPane.contentWindow || windowPane.contentDocument;
   const urlParams = new URLSearchParams(oDoc.location.search);
-  const path = urlParams.get('prev');
-  if (path) {
+  const prev = urlParams.get('prev');
+  if (prev && !isMobile) {
     const clone = windowPane.cloneNode(true);
-    clone.setAttribute('src', path.replace(/_/g, ""));
+    let src = prev.replace(/_/g, "");
+    const prevFolder = urlParams.get('prevfolder');
+    if (prevFolder) {
+      src += '&prevfolder=' + prevFolder.replace(/_/g, "");
+    }
+    clone.setAttribute('src', src);
     windowPane.parentNode.replaceChild(clone, windowPane)
     windowPane = clone;
   } else {
@@ -152,7 +156,6 @@ function generateFolderLink(folder) {
     }
     windowPane.parentNode.replaceChild(clone, windowPane)
     windowPane = clone;
-    title.innerHTML = 'exeami: ' + folder.path;
     if (isMobile) {
       desktop.classList.add('hide');
       titlebar.classList.add('hide');
