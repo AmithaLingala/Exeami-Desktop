@@ -42,7 +42,6 @@ export class Commands {
 
   async sleep(ms) {
       let result = await sleepMethod(ms[0]);
-      console.log(result)
       return {
         path: this.currentPath.path,
         results: [result],
@@ -78,7 +77,6 @@ export class Commands {
 
       let paths = path.split('/');
       let tmpDir = this.tempPath.children.filter(child => child.name == paths[0]);
-      console.log(results)
       if (tmpDir.length == 0 ) {
           results = ['No such file or directory']
       } else if (tmpDir[0].type !== 'directory') {

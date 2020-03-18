@@ -1,4 +1,4 @@
-const content = document.getElementById('content');
+let content = document.getElementById('content');
 const urlParams = new URLSearchParams(window.location.search);
 let path = urlParams.get('path');
 

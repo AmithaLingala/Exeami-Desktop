@@ -14,6 +14,8 @@ body {
 }
 
 .title-bar {
+    -moz-user-select: none;
+    -webkit-user-select: none;
     background-color: #222222;
     width: calc(100% - 10px);
     height: 1.5em;
@@ -24,8 +26,8 @@ body {
 .hide {
   display: none;
 }
-.maximize {
 
+.maximize {
     width: 98%;
     height: 98%;
     z-index: 9999;
@@ -41,8 +43,9 @@ body {
     float: inline-end;
     color: white;
     padding: 1px 3px 1px 3px;
-    background-color: #222222;
+    background-color: transparent;
 }
+
 .window-box {
     margin: 0 auto;
     border-style: solid;
@@ -68,10 +71,16 @@ body {
 }
 
 .folder {
+    -moz-user-select: none;
+    -webkit-user-select: none;
     padding: 5px;
     cursor: pointer;
     text-align: center;
     margin-bottom: 1em;
+}
+
+.folder:hover {
+    background-color: #525252;
 }
 
 .directory {
@@ -136,11 +145,13 @@ body {
 .hide {
     display: none;
 }
+
 .home-button{
+    -moz-user-select: none;
+    -webkit-user-select: none;
     display: none;
-
-
 }
+
 /*Responsive Styles*/
 @media screen and (max-width : 768px) {
     .background {
