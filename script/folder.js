@@ -14,11 +14,15 @@ async function renderFolders() {
     if(!folder.hide) {
       const iconLabel = document.createElement('span');
       const folderDiv = document.createElement('div');
-      const icon = document.createElement('span');
+      let icon = document.createElement('span');
 
       //Assign classes
       iconLabel.classList.add('icon-label');
       folderDiv.classList.add('folder');
+      if(folder.type === 'image') {
+        icon = document.createElement('img');
+        icon.src = folder.path;
+      }
       icon.classList.add(folder.type);
 
       // Set Label name

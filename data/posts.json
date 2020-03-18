@@ -7,23 +7,25 @@
             "type":"link",
             "path":"/blog/UwU"
         },
-        {
-            "id": 1,
-            "name":"Welcome",
-            "type":"link",
-            "path":"/blog/Welcome"
-        },
-        {
-            "id": 2,
-            "name":"Why should I switch to Signal?",
-            "type":"link",
-            "path":"/blog/Why should I switch to Signal?"
-        },
+        
         {
             "id": 3,
             "name":"Delegate",
             "type":"link",
             "path":"/blog/Delegate"
+        },
+        {
+            "id": 2,
+            "name":"Signal",
+            "type":"link",
+            "path":"/blog/Signal"
+        },
+        {
+            "id": 1,
+            "name":"Welcome",
+            "type":"link",
+            "path":"/blog/Welcome"
         }
+        
     ]
 }

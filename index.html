@@ -11,11 +11,17 @@
 
 <body>
     <div class="background" id="background">
-        <div  class="window-box hide" id="window-box">
+        <div  class="window-box restore hide" id="window-box">
             <div class="title-bar" id = "title-bar">
                 <span class="title" id="title">exeami: ~</span>
                 <div class="actions" id="close">
-                    X
+                    &#10005;
+                </div>
+                <div class="actions" id="maximize">
+                    &#128470; 
+                </div>
+                <div class="actions hide" id="restore">
+                    &#128471;
                 </div>
             </div>
             <iframe id="window-pane" class="window-pane" src="/terminal/">
