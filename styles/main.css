@@ -27,6 +27,10 @@ body {
   display: none;
 }
 
+.title {
+    display: inline-block;
+}
+
 .maximize {
     width: 98%;
     height: 98%;
@@ -40,8 +44,9 @@ body {
 
 .actions {
     cursor: pointer;
-    float: inline-end;
+    display: block;
     color: white;
+    float: right;
     padding: 1px 3px 1px 3px;
     background-color: transparent;
 }
