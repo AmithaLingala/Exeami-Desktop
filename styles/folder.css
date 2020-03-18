@@ -7,16 +7,21 @@ body {
 }
 
 .navigation {
+  display: flex;
   background-color: #424242;
   margin: 0 0;
 }
 
+.hide {
+  display: none !important;
+}
+
 .back-btn {
-  display: inline-block;
   -moz-user-select: none;
   -webkit-user-select: none;
   width: 1.5em;
   height: 1.5em;
+  overflow: hidden;
   text-align: center;
   font-size: x-large;
   color: white;
@@ -33,7 +38,8 @@ body {
 
 .address-bar {
     display: inline-block;
-    width: calc(100% - 4em);
+    overflow: hidden;
+    width: 100%;
     height: 2.5em;
     color: white;
     background-color: #525252;

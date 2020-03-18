@@ -6,10 +6,15 @@ const content = document.getElementById('content');
 
 const urlParams = new URLSearchParams(window.location.search);
 let path = urlParams.get('path');
+const prev = urlParams.get('prevfolder');
+console.log(prev);
 
+if (!prev) {
+  backBtn.classList.add('hide');
+} else {
+  backBtn.classList.remove('hide');  
+}
 backBtn.onclick = () => {
-  const tmpParams = new URLSearchParams(location.search);
-  const prev = tmpParams.get('prevfolder');
   if (prev) {
     window.location.href = prev.toString().replace(/_/g, "");
   }
