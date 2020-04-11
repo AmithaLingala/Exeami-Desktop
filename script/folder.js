@@ -3,6 +3,8 @@ const commands = Commands.getInstance();
 const backBtn = document.getElementById('back-btn');
 const addressBar = document.getElementById('address-bar');
 const content = document.getElementById('content');
+const loadIcon = document.getElementById('loadIcon');
+
 
 const urlParams = new URLSearchParams(window.location.search);
 let path = urlParams.get('path');
@@ -44,6 +46,7 @@ async function renderFolders() {
       content.append(folderDiv);
 
       folderDiv.onclick = () => {
+        loadIcon.classList.remove('hide');
         if (folder.type == 'directory') {
           location.href = `/folder?path=${folder.path}&prevfolder=_${location.href}_`;
         } else if (folder.type == 'link') {
@@ -57,3 +60,4 @@ async function renderFolders() {
   });
 }
 renderFolders();
+loadIcon.classList.add('hide');

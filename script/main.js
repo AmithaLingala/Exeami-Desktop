@@ -7,6 +7,7 @@ const logo = document.getElementById('logo');
 const bubble = document.getElementById('bubble');
 const homebutton = document.getElementById('home-button');
 const titlebar = document.getElementById('title-bar');
+const loadIcon = document.getElementById('loadIcon');
 
 let isPrevMobile = null;
 let isMobile = false;
@@ -142,13 +143,16 @@ function generateFolderLink(folder) {
     /** The following is a workaround since neither chrome nor edge supports latest embed standard
      * We were unable to change embed src dynamically, so here we clone the embed element and replace its src before replacing the embed itself.
      */
+    loadIcon.classList.remove('hide');
     windowBox.classList.remove('hide');
     logo.classList.add('logo');
     logo.classList.remove('lion');
     bubble.classList.add('hide');
 
     const clone = windowPane.cloneNode(true);
-
+    clone.onload = function(){
+      loadIcon.classList.add('hide');
+    }
     if (folder.type == 'directory') {
       clone.setAttribute('src', '/folder?path=' + folder.path)
     } else {
