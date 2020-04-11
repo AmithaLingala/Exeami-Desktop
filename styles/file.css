@@ -4,6 +4,14 @@ html {
     height: 100%;
 }
 
+.pdf-content {
+    text-align:center;
+}
+
+.pdf-content canvas {
+    display:inline-block;
+    margin: 0 auto;
+}
 body {
     background-color: #323232;
     width: 100%;
