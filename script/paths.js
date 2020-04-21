@@ -95,12 +95,12 @@ export default class Paths {
         {
           name: "about",
           path: "/about",
-          type:"link"
+          type:"file"
         },
         {
           name: "contact",
           path: "/contact",
-          type:"link"
+          type:"file"
         }
       ]
     }

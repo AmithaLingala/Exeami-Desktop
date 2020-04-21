@@ -37,12 +37,29 @@ async function renderFolders() {
         icon = document.createElement('img');
         icon.src = folder.path;
       }
+      else if (folder.type === 'link') {
+        icon = document.createElement('div');
+        const img = document.createElement('div');
+        img.style.backgroundImage = `url(${folder.icon})`;
+        const text = document.createElement('span');
+        text.innerHTML = folder.name;
+        icon.append(img, text);
+        folderDiv.classList.remove('folder');
+        folderDiv.classList.add('card');
+        content.classList.add('flex');
+      } else {
+        iconLabel.innerHTML = folder.name;
+      }
+
       icon.classList.add(folder.type);
 
       // Set Label name
-      iconLabel.innerHTML = folder.name;
+      
       // push icon and labels to folder
-      folderDiv.append(icon, iconLabel);
+      folderDiv.append(icon);
+      if(folder.type !== 'link') {
+        folderDiv.append(iconLabel);
+      }
       content.append(folderDiv);
 
       folderDiv.onclick = () => {

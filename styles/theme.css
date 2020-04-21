@@ -1,5 +1,12 @@
+html {
+  background-color: #323232;
+}
+a {
+  color: green;
+}
 body {
   color:white;
+  background-color: #323232;
 }
 .block {
   border: 5px solid #525252;
@@ -8,6 +15,27 @@ body {
   padding: 1em;
   background-color: #323242;
 }
+
+.background-primary {
+  background-color: #323242 !important;
+}
+
+.background-secondary {
+  background-color: #222222 !important;
+}
+
+.background-light {
+  background-color: whitesmoke !important;
+}
+
+.background-dark {
+  background-color: #323232 !important;
+}
+
+.background-black {
+  background-color: black !important;
+}
+
 .title {
   font-size: 2em;
   text-align: center;
