@@ -58,9 +58,7 @@ export class Commands {
     else {
       let path = params.trim();
       if(path.startsWith('/')) {
-        if(!this.currentPath) {
-          this.currentPath = await dir.getPaths();
-        }
+        this.currentPath = await dir.getPaths();
         this.tempPath = this.currentPath;
         path = path.substring(1);
         if(path.length === 0) {
@@ -102,9 +100,6 @@ export class Commands {
     };
   }
 
-  async cat (params) {
-    params = params[0];
-  }
   async clear(){
     return {
       path: this.currentPath.path,
