@@ -97,11 +97,14 @@ body {
   display: inline-flexbox;
   margin: 2em;
   width: 40%;
-  height: 15em;
   cursor: pointer;
   background-color: #323232;
-  padding-bottom: 4em;
-  box-shadow:0 0 5px 2px gray;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 gray;
 }
 
 .link {
@@ -110,22 +113,19 @@ body {
   margin: 0 auto;
 }
 
-.link div {
+.link img {
   position: relative;
-  width: 100%;  
-  height: 80%;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 1em;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
-.link span {
+.link p {
   position: relative;
-  display: block;
+  word-wrap: break-word;
   margin: 0 auto;
+  margin-bottom: 1em;
   text-align: center;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
