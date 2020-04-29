@@ -37,11 +37,11 @@ async function renderFolders() {
         icon = document.createElement('img');
         icon.src = folder.path;
       }
-      else if (folder.type === 'link') {
+      if (folder.type === 'link') {
         icon = document.createElement('div');
-        const img = document.createElement('div');
-        img.style.backgroundImage = `url(${folder.icon})`;
-        const text = document.createElement('span');
+        const img = document.createElement('img');
+        img.src = folder.icon;
+        const text = document.createElement('p');
         text.innerHTML = folder.name;
         icon.append(img, text);
         folderDiv.classList.remove('folder');
