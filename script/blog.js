@@ -23,7 +23,7 @@ fetch('/data/posts.json')
           postIndex = posts.findIndex(post=>post.name == path);
           if(postIndex == -1) postIndex = 0;
         }
-        clone.setAttribute('src', '/blog/page/' + posts[postIndex].id);
+        clone.setAttribute('src', '/blogs/page/' + posts[postIndex].id);
 
         notes.parentNode.replaceChild(clone, notes)
         notes = clone;
@@ -55,12 +55,12 @@ async function populateIndex() {
         item.innerHTML = post.name;
         item.onclick = () => {
             console.log(notes.src)
-            // notes.src = '/blog/page/'+post.id
+            // notes.src = '/blogs/page/'+post.id
             /** The following is a workaround since neither chrome nor edge supports latest embed standard
              * We were unable to change embed src dynamically, so here we clone the embed element and replace its src before replacing the embed itself.
              */
             const clone = notes.cloneNode(true);
-            clone.setAttribute('src', '/blog/page/' + post.id);
+            clone.setAttribute('src', '/blogs/page/' + post.id);
             notes.parentNode.replaceChild(clone, notes)
             notes = clone;
             navigator1.style.width = "2em";

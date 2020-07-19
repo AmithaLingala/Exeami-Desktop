@@ -5,7 +5,7 @@
             "name":"UwU",
             "hide": true,
             "type":"link",
-            "path":"/blog/UwU",
+            "path":"/blogs/UwU",
             "icon":"/icons/blog/Signal.jpg"
         },
         {
@@ -13,7 +13,7 @@
             "name":"Homomorphic Encryption",
             "hide": false,
             "type":"link",
-            "path":"/blog/Homomorphic Encryption",
+            "path":"/blogs/Homomorphic Encryption",
             "icon":"/icons/blog/Homomorphic_Encryption.jpg"
         },
         {
@@ -21,23 +21,23 @@
             "name":"Delegate",
             "hide": true,
             "type":"link",
-            "path":"/blog/Delegate",
+            "path":"/blogs/Delegate",
             "icon":"/icons/blog/Signal.jpg"
         },
         {
             "id": 2,
             "name":"Why Should I Switch to Signal?",
             "type":"link",
-            "path":"/blog/Signal",
+            "path":"/blogs/Signal",
             "icon":"/icons/blog/Signal.jpg"
         },
         {
             "id": 1,
             "name":"Welcome",
             "type":"link",
-            "path":"/blog/Welcome",
+            "path":"/blogs/Welcome",
             "icon":"/icons/blog/Welcome.svg"
         }
-        
+
     ]
 }

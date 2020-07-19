@@ -87,8 +87,8 @@ export default class Paths {
           ]
         },
         {
-          name: "blog",
-          path: "/blog",
+          name: "blogs",
+          path: "/blogs",
           type: "directory",
           children: blogs
         },
