@@ -22,8 +22,6 @@ export default class Paths {
     if(this.isGenerated) {
       return;
     }
-    let blogs = []
-    await fetch('/data/posts.json').then(response=>response.json()).then(json=>blogs.push(...json.posts));
     const binCommands = ['pwd', 'ls', 'sleep', 'cd']
           .sort()
           .map(cmd => generateCommandPath(cmd, 'js', '/bin/'+cmd));
@@ -85,12 +83,6 @@ export default class Paths {
               type:"directory"
             },
           ]
-        },
-        {
-          name: "blog",
-          path: "/blog",
-          type: "directory",
-          children: blogs
         },
         {
           name: "about",
