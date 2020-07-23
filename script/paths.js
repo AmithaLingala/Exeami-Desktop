@@ -85,15 +85,6 @@ export default class Paths {
           ]
         },
         {
-<<<<<<< HEAD
-=======
-          name: "blogs",
-          path: "/blogs",
-          type: "directory",
-          children: blogs
-        },
-        {
->>>>>>> 80f7b7dc54fd0923802ecb752cef90c5d51ddb7c
           name: "about",
           path: "/about",
           type:"file"
