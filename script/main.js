@@ -69,14 +69,9 @@ function closeOperation() {
   }
 }
 
-function mobileViewToggle(isFirst = false) {
+function mobileViewToggle() {
   const style = window.getComputedStyle(homebutton)
   isMobile = style.getPropertyValue('display') === 'block';
-  if (isFirst && !isMobile) {
-    windowBox.classList.remove("hide");
-    logo.classList.remove('hide');
-  }
-
   if (isPrevMobile === isMobile) { return; }
   // now i can use isMobile to run javascript conditionally
   isPrevMobile = isMobile;
@@ -173,5 +168,5 @@ function generateFolderLink(folder) {
   desktop.appendChild(folderDiv);
 }
 
-document.onload = mobileViewToggle(true);
+document.onload = mobileViewToggle();
 document.getElementsByTagName("BODY")[0].onresize = function () { mobileViewToggle() };
