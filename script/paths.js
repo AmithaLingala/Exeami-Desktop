@@ -53,11 +53,11 @@ export default class Paths {
               path: "/home/Documents",
               type:"directory",
               children:[
-                {
-                  name: "My_Resume.pdf",
-                  path: "/home/Documents/My_Resume.pdf",
-                  type:"file"
-                }
+                // {
+                //   name: "My_Resume.pdf",
+                //   path: "/home/Documents/My_Resume.pdf",
+                //   type:"file"
+                // }
               ]
             },
             {
@@ -71,7 +71,7 @@ export default class Paths {
               type:"directory",
               children:[
                 {
-                  name: "logo.svg",
+                  name: "hello.svg",
                   path: "/home/Pictures/logo.svg",
                   type:"image"
                 },
