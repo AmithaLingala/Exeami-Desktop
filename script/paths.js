@@ -41,7 +41,14 @@ export default class Paths {
         {
           name: "terminal",
           path: "/terminal",
-          type:"application"
+          type:"application",
+          icon: "terminal.svg"
+        },
+        {
+          name: "about-me",
+          path: "/about-me",
+          type:"application",
+          icon: "about.png"
         },
         {
           name: "home",
