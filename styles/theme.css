@@ -61,7 +61,7 @@ body {
 }
 
 .statement {
-  font-size: 1.5em;
+  font-size: large;
   line-height: 2em;
   white-space: pre-wrap;       /* css-3 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */

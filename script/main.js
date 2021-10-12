@@ -127,7 +127,8 @@ function generateFolderLink(folder) {
   iconLabel.classList.add('icon-label');
   folderDiv.classList.add('folder');
   icon.classList.add(folder.type);
-
+  if(folder.type==="application")
+  icon.style.backgroundImage = `url(/icons/${folder.icon})`;
   // Set Label name
   iconLabel.innerHTML = folder.name;
   // push icon and labels to folder

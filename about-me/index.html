@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+
+    <meta name="description" content="My personal portfolio">
+    <meta name="author" content="Amitha Lingala">
+
+    <meta name="keywords"
+        content="HTML,CSS,C#,Games,ExeAmi,Coding,Amitha,exeami,desktop,tutorials,privacy blogs,Amitha Lingala,terminal">
+
+    <link rel="stylesheet" type="text/css" href="/styles/about-me.css">
+</head>
+
+<body>
+
+    <div class="side-bar" id="side-bar">
+        <button class="about actions" autofocus id="about" data-target="about-content">🪄&nbsp; About</button>
+        <button class="skills actions" id="skills" data-target="skills-content">🏆 &nbsp;Skills</button>
+        <button class="education actions" id="education" data-target="education-content">📚 &nbsp;Education</button>
+        <button class="experience actions" id="experience" data-target="experience-content">💼 &nbsp;Experience</button>
+        <button class="projects actions" id="projects" data-target="projects-content">🛠️ &nbsp;Projects</button>
+        <button class="resume actions" id="resume" data-target="resume-content">📝 &nbsp;Resume</button>
+    </div>
+    <div class="content">
+        <div class="tab" id="about-content"> Hi 👋 my name is Amitha Lingala and I'am Software developer</div>
+        <div class="tab hide" id="skills-content"></div>
+        <div class="tab hide" id="education-content">
+            <div class="card-list">
+                <div class="card">
+                    <h1 class="card-title">University of Liverpool</h1>
+                    <p>Master's in Advanced Computer Science</p>
+                    <time datetime="2021-01-17">Jan 2021</time>-
+                    <time datetime="2022-01-31">Jan 2022</time>
+                </div>
+                <div class="card">
+                    <h1 class="card-title">Osmania University</h1>
+                    <p>Bachelor's in Computer Science</p>
+                    <time datetime="2012-10-2">Oct 2012</time>-
+                    <time datetime="2016-06-30">June 2016</time>
+                </div>
+            </div>
+        </div>
+        <div class="tab hide" id="experience-content">
+            <div class="card-list" id="card-list">
+                <div class="card">
+                    <div class="card-front">
+                        <h1 class="card-title">University of Liverpool</h1>
+                        <p>Demonstrator </p>
+                        <time datetime="2021-02-01">Feb 2021</time>-
+                        <time datetime="2021-05-15">May 2021</time>
+                    </div>
+                    <div class="card-back hide" data-hide="true">
+                        Demonstrated a Module called "Complexity of Algorithms". The
+                        responsibilities involved analysis and explanation of the algo-
+                        rithms along with grading the assessments.
+                    </div>
+                </div>
+                <div class="card">
+                    <h1 class="card-title">HP Inc.</h1>
+                    <p>Software Engineer</p>
+                    <time datetime="2017-11-01">Nov 2017</time>-
+                    <time datetime="2020-12-14">Dec 2020</time>
+                </div>
+                <div class="card">
+                    <h1 class="card-title">Samsung R&D Institute</h1>
+                    <p>Software Engineer</p>
+                    <time datetime="2016-06-23">June 2016</time>-
+                    <time datetime="2017-10-31">Oct 2017</time>
+                </div>
+                <div class="card">
+                    <h1 class="card-title">Riktum Technologies</h1>
+                    <p>Intern</p>
+                    <time datetime="2015-06-01">June 2015</time>-
+                    <time datetime="2015-07-31">July 2015</time>
+                </div>
+            </div>
+        </div>
+        <div class="tab hide" id="projects-content"></div>
+        <div class="tab hide" id="resume-content"></div>
+
+
+    </div>
+
+    <script type="module" src="/script/about-me.js"></script>
+</body>
+
+</html>
