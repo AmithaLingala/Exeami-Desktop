@@ -8,8 +8,9 @@ const cardList = document.getElementById("card-list");
 about.focus();
 const tabs = [about, skills, education, experience, projects, resume];
 tabs.forEach(tab => tab.onclick = (e) => showTab(e.target.getAttribute("data-target")));
-for (let card of cardList.childNodes) {
-    card.onclick = (e) => flipCard(e.target);
+for (let card of cardList.children) {
+    card.onclick = (e) => flipCard(card);
+    console.log(card);
 }
 function showTab(id) {
     for (let tab of document.getElementsByClassName('tab')) {
@@ -18,8 +19,9 @@ function showTab(id) {
     document.getElementById(id).classList.toggle('hide');
 }
 function flipCard(card) {
-    let cardFront = card.childNodes[0];
-    let cardBack = card.childNodes[1];
+    card.classList.toggle("flip");
+    let cardFront = card.children[0];
+    let cardBack = card.children[1];
     if (cardFront.getAttribute("data-hide")) {
         cardFront.classList.remove("hide");
         cardBack.classList.add("hide");
