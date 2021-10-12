@@ -58,7 +58,6 @@ body, html {
   margin:0 auto;
   margin-top: 1em;
   width: 40%;
-  height: 40%;
   cursor: pointer;
   transition: 0.6s;
   transform-style: preserve-3d;
