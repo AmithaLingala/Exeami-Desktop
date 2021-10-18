@@ -86,4 +86,100 @@ body, html {
 }
 .card-back {
   transform: rotateY(180deg);
+  text-align: left !important;
+  font-size: small !important;
+}
+.badge {
+  color: white;
+  font-size: small !important;
+  font-style: normal !important;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px 10px;
+  display: inline-block;
+}
+.badge.red {
+  background-color: rgb(184, 0, 0);
+}
+.badge.yellow {
+  background-color: rgb(206, 206, 0);
+}
+.badge.pink {
+  background-color: rgb(182, 13, 131);
+}
+.badge.green {
+  background-color: rgb(3, 145, 3);
+}
+.badge.white {
+  background-color: white;
+  color: black;
+} 
+.badge.orange {
+  background-color: orangered;
+}
+.badge.black {
+  background-color: black;
+}
+.badge.gold {
+  background-color: gold;
+}
+.badge.lawngreen {
+  background-color: rgb(84, 168, 0);
+}
+.badge.blue {
+  background-color: rgb(36, 36, 253);
+}
+.badge-icon{
+  margin-top: 2px;
+  margin-right: 4px;
+}
+.msg-wrapper {
+position: fixed;
+transform: rotate(10deg) translate(61%, -130px);
+top: 0%;
+left: calc(100% - 400px);
+width: 200px;
+}
+
+.msg {
+  position: absolute;
+  top: 260px;
+  border: 1px solid white;
+  height: 200px;
+  padding: 1em;
+  font-size: x-small !important;
+  box-shadow: 0 4px 5px 0 #fff, 0 6px 10px 0 whitesmoke;
+}
+.image {
+  position: fixed;
+  top: 10%;
+  left: calc(100% - 170px);
+  width: 149px;
+  background-color: rgba(116, 106, 106, 0);
+}
+.banner {
+  height: 100vh;
+}
+.skills-text{
+  line-height: 30px;
+  font-size: medium;
+  text-align: left;
+}
+.box{
+  float: left;
+margin: 10px;
+}
+.book{
+ float: left;
+}
+.book-content {
+  position: fixed;
+  top: 10px;
+  padding: 10px;
+  font-size: small !important;
+  color: black !important;
+  transform: rotate(353deg);
+  height: 210px;
+  width: 170px;
+  text-align: left !important;
 }
