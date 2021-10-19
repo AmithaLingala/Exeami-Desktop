@@ -6,7 +6,7 @@ const windowBox = document.getElementById('window-box');
 const logo = document.getElementById('logo');
 const bubble = document.getElementById('bubble');
 const homebutton = document.getElementById('home-button');
-const titlebar = document.getElementById('title-bar');
+// const titlebar = document.getElementById('title-bar');
 const loadIcon = document.getElementById('loadIcon');
 const clock = document.getElementById('clock');
 const startBtn = document.getElementById('start--btn');
@@ -49,7 +49,7 @@ async function init() {
   startWrapper.onclick = (e) => {
     startWrapper.classList.toggle('hide');
   }
-  
+
 }
 
 function closeOperation() {
@@ -94,14 +94,14 @@ function mobileViewToggle() {
     } else {
       desktop.classList.add('hide');
     }
-    titlebar.classList.add('hide');
+    // titlebar.classList.add('hide');
     logo.classList.add('hide');
     bubble.classList.add('hide');
     maximizeWindow();
   } else {
     logo.classList.remove('hide');
     desktop.classList.remove('hide');
-    titlebar.classList.remove('hide');
+    // titlebar.classList.remove('hide');
 
     if (windowBox.classList.contains('hide')) {
       logo.classList.remove('logo');
@@ -170,7 +170,7 @@ function generateFolderLink(folder) {
     windowPane = clone;
     if (isMobile) {
       desktop.classList.add('hide');
-      titlebar.classList.add('hide');
+      // titlebar.classList.add('hide');
       logo.classList.add('hide');
       maximizeWindow();
     }
