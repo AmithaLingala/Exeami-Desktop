@@ -8,6 +8,10 @@ const bubble = document.getElementById('bubble');
 const homebutton = document.getElementById('home-button');
 const titlebar = document.getElementById('title-bar');
 const loadIcon = document.getElementById('loadIcon');
+const clock = document.getElementById('clock');
+const startBtn = document.getElementById('start--btn');
+const startWrapper = document.getElementById('start--menu--wrapper');
+const startMenu = document.getElementById('start--menu');
 
 let isPrevMobile = null;
 let isMobile = false;
@@ -37,8 +41,16 @@ async function init() {
   restore.onclick = () => {
     restoreWindow();
   };
+
+  startBtn.onclick = () => {
+    startWrapper.classList.toggle('hide');
+  }
+
+  startWrapper.onclick = (e) => {
+    startWrapper.classList.toggle('hide');
+  }
+  
 }
-init();
 
 function closeOperation() {
   let oDoc = windowPane.contentWindow || windowPane.contentDocument;
@@ -169,5 +181,19 @@ function generateFolderLink(folder) {
   desktop.appendChild(folderDiv);
 }
 
-document.onload = mobileViewToggle();
+function startClock() {
+  setInterval(()=>{
+    const date = new Date();
+    const text = date.toLocaleString().replace(',','<br>');
+    clock.innerHTML = text;
+    startClock();
+  }, 1000);
+}
+
+function initialize() {
+  init();
+  mobileViewToggle();
+  startClock();
+}
+document.onload = initialize();
 document.getElementsByTagName("BODY")[0].onresize = function () { mobileViewToggle() };

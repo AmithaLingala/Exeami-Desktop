@@ -1,262 +1,310 @@
 body {
-    margin: 0 0;
-    background-color: #424242;
-    position:absolute;
-    height:100%; width:100%;
-    display: table;
+  margin: 0 0;
+  background-color: #424242;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: table;
 }
 
 .background {
-    display: table-cell;
-    vertical-align: middle;
-    height: 80%;
-    z-index: 5;
+  display: table-cell;
+  vertical-align: middle;
+  height: 80%;
+  z-index: 5;
 }
 
 .title-bar {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    background-color: #222222;
-    width: calc(100% - 10px);
-    height: 1.5em;
-    color: white;
-    padding: 5px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background-color: #222222;
+  width: calc(100% - 10px);
+  height: 1.5em;
+  color: white;
+  padding: 5px;
 }
 
-.hide {
-  display: none;
-}
 
 .title {
-    display: inline-block;
+  display: inline-block;
 }
 
 .maximize {
-    width: 99%;
-    height: 98%;
-    z-index: 9999;
+  width: 99%;
+  height: 98%;
+  z-index: 9999;
 }
 
 .restore {
-    width: 70%;
-    height: 80%;
+  width: 70%;
+  height: 80%;
 }
 
 .actions {
-    cursor: pointer;
-    display: block;
-    color: white;
-    float: right;
-    padding: 1px 3px 1px 3px;
-    background-color: transparent;
+  cursor: pointer;
+  display: block;
+  color: white;
+  float: right;
+  padding: 1px 3px 1px 3px;
+  background-color: transparent;
 }
 
 .window-box {
-    margin: 0 auto;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #444444;
-    box-shadow:0 0 10px 5px #333333;
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #444444;
+  box-shadow: 0 0 10px 5px #333333;
 }
 
 .window-pane {
-    margin: 0 0;
-    border: 0;
-    width: calc(100%);
-    height: calc(100% - 1.5em - 10px);
-    display: block;
+  margin: 0 0;
+  border: 0;
+  width: calc(100%);
+  height: calc(100% - 1.5em - 10px);
+  display: block;
 }
 
 .desktop {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-left: 2em;
-    padding-top: 2em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 2em;
+  padding-top: 2em;
 }
 
 .folder {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    padding: 5px;
-    cursor: pointer;
-    text-align: center;
-    margin-bottom: 1em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 1em;
 }
 
 .folder:hover {
-    background-color: #525252;
+  background-color: #525252;
 }
 
 .directory {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url(/icons/folder.svg);
-    background-size: cover;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url(/icons/folder.svg);
+  background-size: cover;
 }
 
 .file {
-    display: block;
-    width: 55px;
-    height: 55px;
-    background-image: url(/icons/file.svg);
-    background-size: cover;
+  display: block;
+  width: 55px;
+  height: 55px;
+  background-image: url(/icons/file.svg);
+  background-size: cover;
 }
 
 .link {
-    display: block;
-    width: 55px;
-    height: 55px;
-    background-image: url(/icons/file.svg);
-    background-size: cover;
+  display: block;
+  width: 55px;
+  height: 55px;
+  background-image: url(/icons/file.svg);
+  background-size: cover;
 }
 .application {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url(/icons/terminal.svg);
-    background-size: cover;
-    /* box-shadow:0 0 5px 2px gray; */
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url(/icons/terminal.svg);
+  background-size: cover;
+  /* box-shadow:0 0 5px 2px gray; */
 }
 
 .icon-label {
-    display: block;
-    width: 100%;
-    color: white;
-    text-align: left !important;
-    margin-top: 5px;
+  display: block;
+  width: 100%;
+  color: white;
+  text-align: left !important;
+  margin-top: 5px;
 }
 
 .lion {
-    float: right;
-    height: 20em;
-    padding-top: 10em;
+  float: right;
+  height: 20em;
+  padding-top: 10em;
 }
 
 .message {
   float: right;
 }
 .logo {
-    float: right;
-    height: 5em;
+  float: right;
+  height: 5em;
 }
 
 .bubble {
-    float: right;
-    height: 20em;
+  float: right;
+  height: 20em;
 }
 
-.hide {
-    display: none;
-}
-
-.home-button{
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    display: none;
+.home-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  display: none;
 }
 
 .accessibility-alert {
   display: none;
 }
 
-/*Responsive Styles*/
-@media screen and (max-width : 1260px) {
-    .background {
-        display: table-cell;
-        vertical-align: middle;
-        height: 95%;
-        margin: 0 0;
-    }
-    .home-button{
-        position: absolute;
-        display: block !important;
-        font-size: 2em;
-        cursor: pointer;
-        color: white;
-        text-align: center;
-        left: calc(50% - 0.5em);
-        top: 94%;
-
-    }
-    .icon{
-        align-self: auto;
-    }
-
-    .tooltip .tooltiptext {
-        height: 50px;
-
-        /* Position the tooltip text */
-        top: 125%;
-        margin-left: -100px !important;
-      }
-
-      /* Tooltip arrow */
-      .tooltip .tooltiptext::after {
-        visibility: hidden;
-      }
-
+.hide {
+  display: none;
 }
-
- /* Tooltip container */
- .tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+/*Responsive Styles*/
+@media screen and (max-width: 1260px) {
+  .background {
+    display: table-cell;
+    vertical-align: middle;
+    height: 95%;
+    margin: 0 0;
+  }
+  .home-button {
+    position: absolute;
+    display: block !important;
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    left: calc(50% - 0.5em);
+    top: 94%;
+  }
+  .icon {
+    align-self: auto;
   }
 
-  /* Tooltip text */
   .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
+    height: 50px;
 
     /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 0.3s;
+    top: 125%;
+    margin-left: -100px !important;
   }
 
   /* Tooltip arrow */
   .tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    visibility: hidden;
   }
+}
 
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
 
-@media screen and (max-width : 900px), screen and (max-height : 620px) {
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.taskbar {
+  position: fixed;
+  display: flex;
+  top: calc(100vh - 51px);
+  height: 50px;
+  width: 100%;
+  flex-direction: row;
+  border: 1px solid #222222;
+  color: #fff;
+  background-color: #000;
+  line-height: 26px;
+}
+
+.taskbar .start-btn {
+  display: inline-block;
+  border: 1px solid white;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.taskbar .spacer {
+  flex-grow: 1;
+}
+.taskbar .notifications {
+  padding: 2px;
+  background-color: #000;
+}
+.start-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+}
+.start-menu {
+  position: fixed;
+  top: calc(100% - (50% + 50px));
+  width: 35%;
+  height: 50%;
+  background-color: #000;
+}
+
+.menu-item {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  padding: 1em 0;
+}
+@media screen and (max-width: 900px), screen and (max-height: 620px) {
   .accessibility-alert {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(22,22,22,0.7);
+    background-color: rgba(22, 22, 22, 0.7);
   }
   .accessibility-alert .alert {
     padding: 2em;
