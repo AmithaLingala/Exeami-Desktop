@@ -45,8 +45,8 @@ export default class Paths {
           icon: "terminal.svg"
         },
         {
-          name: "about-me",
-          path: "/about-me",
+          name: "portfolio",
+          path: "/portfolio",
           type:"application",
           icon: "about.png"
         },
